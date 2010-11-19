@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- DEFAULT COLORS -->
+    <meta name="color:Background" content="#ffffff" />
+    <meta name="color:Dim" content="#e5e5e5" />
+    <meta name="color:Headline" content="#555555" />
+    <meta name="color:Link" content="#0b559b" />
+    <meta name="color:Text" content="#333333" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>{Title}{block:SearchPage}, Search results for: {SearchQuery}{/block:SearchPage}{block:PostSummary}, {PostSummary}{/block:PostSummary}</title>
+    {block:Description}<meta name="description" content="{MetaDescription}" />{/block:Description}
+    <link rel="shortcut icon" href="{Favicon}" />
+    <link rel="alternate" type="application/rss+xml" href="{RSS}" />
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.4/themes/cupertino/jquery-ui.css" type="text/css" /> 
+    <style type="text/css"> 
+    
+        body, div, dl, h1, h2, h3, h4, h5, h6, p { margin:0; outline:0; padding:0; }
+        
+        body {
+        	background-color: {color:Background};
+        	color: {color:Text};
+        	font-size: 24pt;
+        	font-family: Baskerville, "Goudy Old Style", "Palatino", "Book Antiqua", serif;
+        	padding-right: 3%;
+        	padding-left: 3%;
+        	padding-top: 3%;
+        }
+ 
+        code { font-size:18pt; white-space:pre-wrap; margin-top:-24pt; }
+ 
+        h1, h2, h3, h4, h5, h6 { 
+            color: {color:Headline};
+        }
+ 
+        h1 {
+            font-size: 36pt;
+            margin-top: 10pt;
+        }
+ 
+    
+        h3 { font-size:30pt; }
+        
+        h4 { margin-top:12pt; margin-bottom:0; }
+        
+        ol, ul { margin:12pt auto; }
+        
+        p + p { margin-top:16pt; }
+
+        table { border-collapse:collapse; margin:1em auto; }
+        td, th { padding:0.3em 0.6em; }
+ 
+        .center {
+        	text-align: center;
+        }
+ 
+        .post {
+        }
+ 
+        a {
+            color: {color:Link};
+        	text-decoration: none;
+        }
+
+        a:hover { color:#0070a3; }
+ 
+        .quiet a {
+        	color: {color:Dim};
+        }
+ 
+        .regular_post img {
+            max-width: 100%;
+        }
+        
+        #slides { top: 20pt; }
+        .slide { padding: 20pt 0 40pt; }
+        .js .slide { position: absolute; }
+        .nav-pager, .nav-prev-next { font-size: 16pt; line-height: 16pt; list-style: none; margin: 0; overflow: hidden; position: fixed; z-index: 100; }
+        .nav-pager { bottom:0; left:0; }
+        .nav-pager li, .nav-prev-next li { border: none; float: left; padding: 0; }
+        .nav-pager a, .nav-prev-next a { display: block; line-height: 16pt; }
+        .nav-pager li { margin-right: 6pt; }
+        .nav-pager a, .nav-prev-next a { background: {color:Link}; color: {color:Background}; padding: 10pt 5pt; text-decoration: none; }
+        .nav-pager .current a, .nav-prev-next a:hover { background: {color:Text}; color: {color:Background}; }
+        .nav-prev-next { right: 3%; top: 0; }
+        .nav-prev-next li { margin-left: 6pt; }
+
+        {CustomCSS}
+        
+    </style>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.4/jquery-ui.min.js"></script>
+    <script>
+        (function(c){c.fn.presentation=function(g){var h={slide:".slide",pagerClass:"nav-pager",prevNextClass:"nav-prev-next",prevText:"Previous",nextText:"Next",transition:"fade"};c(this).each(function(){var a=c(this);a.count=1;a.changeSlide=function(b){a.visibleSlide=a.slides.filter(":visible");a.slideToShow=a.slides.filter(":nth-child("+b+")");switch(a.options.transition){case "show/hide":a.visibleSlide.hide();a.slideToShow.show();break;case "slide":a.visibleSlide.slideUp(500,function(){a.slideToShow.slideDown(1E3)}); break;default:a.visibleSlide.fadeOut(500);a.slideToShow.fadeIn(500)}a.find("."+a.options.pagerClass).children(".current").removeClass("current");a.find("."+a.options.pagerClass).children(":nth-child("+b+")").addClass("current")};a.pageClick=function(b){if(!b.parent().hasClass("current")){a.changeSlide(b.parent().prevAll().length+1);a.count=b.parent().prevAll().length+1}};a.prevNextClick=function(b){if(b==="prev")a.count===1?(a.count=a.slides.length):a.count--;else a.count===a.slides.length?(a.count=
+        1):a.count++;a.changeSlide(a.count);window.location.hash="#"+a.count};a.addControls=function(){a.numSlides=a.slides.length;for(var b='<ol class="'+a.options.pagerClass+'">',d=1;d<a.numSlides+1;d++)b+='<li><a href="#'+d+'">'+d+"</a></li>";a.append(b);if(a.currentHash){a.find("."+a.options.pagerClass).children(":nth-child("+a.currentHash+")").addClass("current");a.count=a.currentHash}else{a.find("."+a.options.pagerClass).children(":first-child").addClass("current");a.count=1}a.append('<ul class="'+
+        a.options.prevNextClass+'"><li><a href="#prev" class="prev">'+a.options.prevText+'</a></li><li><a href="#next" class="next">'+a.options.nextText+"</a></li>");a.find("."+a.options.pagerClass).find("a").bind("click",function(){a.pageClick(c(this))});a.find("."+a.options.prevNextClass).find("a").click(function(){a.prevNextClick(c(this).attr("class"));return false});c(document).bind("keyup",function(f){var e="";if(f.keyCode===37)e="prev";else if(f.keyCode===39)e="next";e!==""&&a.prevNextClick(e)})};a.init=      function(){a.options=c.extend(h,g);a.slides=a.find(a.options.slide);a.currentHash=window.location.hash.substr(1);a.currentHash?a.slides.filter(":not(:nth-child("+a.currentHash+"))").hide():a.slides.filter(":not(:first)").hide();a.addControls()};a.init()})}})(jQuery);
+    </script>
+    <script>
+        $(document).ready(function() {
+            concealTumblrPanel();
+            $('#slides').presentation();
+        });
+        var concealTumblrPanel = function() {
+            $('iframe').remove();
+        };
+    </script>
+
+</head>
+<body>
+    
+    <h1><a href="/">{Title}</a></h1>
+    {block:Description}
+    <div id="description">{Description}</div>
+    {/block:Description}
+
+    {block:Posts}      
+    <div class="post">
+        
+        {block:Text}
+            {block:Title}<h2><a href="{Permalink}">{Title}</a></h2>{/block:Title}
+            {Body}
+        {/block:Text}
+
+        {block:Photo}
+            {LinkOpenTag}<img src="{PhotoURL-500}" alt="{PhotoAlt}" />{LinkCloseTag}
+            {block:Caption}<br>{Caption}{/block:Caption}
+        {/block:Photo}
+          
+        {block:Video}
+            {Video-500}
+            {block:Caption}<br>{Caption}{/block:Caption}
+        {/block:Video}
+        
+        {block:Audio}
+            {AudioPlayerBlack}
+            {block:Caption}<br>{Caption}{/block:Caption}
+        {/block:Audio}
+          
+        {block:Quote}
+            <em> {Quote}</em>
+            {block:Source}{Source}{/block:Source}
+        {/block:Quote}
+
+        
+        {block:Chat}
+            {block:Title}<h2>{Title}</h2>{/block:Title}
+            {block:Lines}
+                {block:Label}<strong>{Label}</strong>{/block:Label} {Line}<br>
+            {/block:Lines}
+        {/block:Chat}
+          
+        {block:Link}
+           <a href="{URL}" {Target}>{Name}</a>
+           {block:Description}{Description}{/block:Description}
+        {/block:Link}
+        
+        
+        
+    </div>
+    {/block:Posts}
+    
+    <!--  
+    <div class="nav">{block:PreviousPage}
+        <a href={PreviousPage}>back</a> {/block:PreviousPage}{block:NextPage}and <a href={NextPage}>forward</a>{/block:NextPage}</div>
+        <p class="center"><span class="rss"><a href={RSS}>rss</a></span></a><br><a href="/archive">archive</a><br>  
+    </div>
+    -->
+    
+</body>
+</html>
