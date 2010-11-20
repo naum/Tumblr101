@@ -1,0 +1,4 @@
+#!/bin/sh
+
+curl -oindex.html http://bootup.tumblr.com
+./localiseImages.rb index.html

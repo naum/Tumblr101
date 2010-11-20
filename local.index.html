@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- DEFAULT COLORS -->
+    <meta name="color:Background" content="#ffffff" />
+    <meta name="color:Dim" content="#d3bfc9" />
+    <meta name="color:Headline" content="#3b001e" />
+    <meta name="color:Link" content="#4f0028" />
+    <meta name="color:Text" content="#14000a" />
+    <meta name="color:Hover" content="#3b001e" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Tumblr 101</title>
+    
+    <link rel="shortcut icon" href="images/30.media.tumblr.com__avatar_27d7c23b9fce_16.png" />
+    <link rel="alternate" type="application/rss+xml" href="http://bootup.tumblr.com/rss" />
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.4/themes/cupertino/jquery-ui.css" type="text/css" /> 
+    <style type="text/css"> 
+      
+        blockquote { font-size:14px; line-height:18px; }
+        blockquote p { margin:6px auto; }
+        blockquote p + p { margin-top:12px; }
+    
+        body, div, dl, h1, h2, h3, h4, h5, h6, p { margin:0; outline:0; padding:0; }
+        
+        body {
+        	background-color: #ffffff;
+        	color: #280014;
+        	font-size: 24px;
+        	font-family: Baskerville, "Goudy Old Style", "Palatino", "Book Antiqua", serif;
+        	padding-right: 3%;
+        	padding-left: 3%;
+        	padding-top: 3%;
+        }
+ 
+        code { font-size:18px; white-space:pre-wrap; margin-top:-24px; }
+ 
+        h1, h2, h3, h4, h5, h6 { 
+            color: #3b001e;
+        }
+ 
+        h1 {
+            font-size: 48px;
+            margin-top: 0px;
+            margin-bottom: 0px;
+            padding-bottom: 0px;
+            padding-top: 0px;
+        }
+ 
+    
+        h3 { padding-top:0; font-size:36px; margin-top:0px; }
+        
+        h4 { margin-top:12px; margin-bottom:12px; }
+        
+        ol, ul { margin:12px auto; }
+        
+        p { margin-top:12px; }
+        p + p { margin-top:24px; }
+
+        table { border-collapse:collapse; margin:1em auto; }
+        td, th { padding:0.3em 0.6em; }
+ 
+        .center {
+        	text-align: center;
+        }
+ 
+        .post {
+        }
+ 
+        a {
+          color: #7b405e;
+        	text-decoration: none;
+        }
+
+        a:hover { background: #d3bfc9; color: #3b001e; }
+ 
+        .quiet a {
+        	color: #d3bfc9;
+        }
+ 
+        .regular_post img {
+            max-width: 100%;
+        }
+        
+        #slides { top: 12px; padding-bottom:36; }
+        .slide { padding: 12px 0 24px; }
+        .js .slide { position: absolute; }
+        .nav-pager, .nav-prev-next { font-size: 18px; line-height: 24px; list-style: none; margin: 0; overflow: hidden; position: fixed; z-index: 100; }
+        .nav-pager { bottom:0; left:0; }
+        .nav-pager li, .nav-prev-next li { border: none; float: left; padding: 0; }
+        .nav-pager a, .nav-prev-next a { display: block; line-height: 18px; }
+        .nav-pager li { margin-right: 6px; }
+        .nav-pager a, .nav-prev-next a { background: #7b405e; color: #ffffff; padding: 6px 6px; text-decoration: none; }
+        .nav-pager .current a, .nav-prev-next a:hover { background: #280014; color: #ffffff; }
+        .nav-prev-next { right: 3%; top: 0; }
+        .nav-prev-next li { margin-left: 6px; }
+
+        
+        
+    </style>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.4/jquery-ui.min.js"></script>
+    <script>
+        (function(c){c.fn.presentation=function(g){var h={slide:".slide",pagerClass:"nav-pager",prevNextClass:"nav-prev-next",prevText:"Previous",nextText:"Next",transition:"fade"};c(this).each(function(){var a=c(this);a.count=1;a.changeSlide=function(b){a.visibleSlide=a.slides.filter(":visible");a.slideToShow=a.slides.filter(":nth-child("+b+")");switch(a.options.transition){case "show/hide":a.visibleSlide.hide();a.slideToShow.show();break;case "slide":a.visibleSlide.slideUp(500,function(){a.slideToShow.slideDown(1E3)}); break;default:a.visibleSlide.fadeOut(500);a.slideToShow.fadeIn(500)}a.find("."+a.options.pagerClass).children(".current").removeClass("current");a.find("."+a.options.pagerClass).children(":nth-child("+b+")").addClass("current")};a.pageClick=function(b){if(!b.parent().hasClass("current")){a.changeSlide(b.parent().prevAll().length+1);a.count=b.parent().prevAll().length+1}};a.prevNextClick=function(b){if(b==="prev")a.count===1?(a.count=a.slides.length):a.count--;else a.count===a.slides.length?(a.count=
+        1):a.count++;a.changeSlide(a.count);window.location.hash="#"+a.count};a.addControls=function(){a.numSlides=a.slides.length;for(var b='<ol class="'+a.options.pagerClass+'">',d=1;d<a.numSlides+1;d++)b+='<li><a href="#'+d+'">'+d+"</a></li>";a.append(b);if(a.currentHash){a.find("."+a.options.pagerClass).children(":nth-child("+a.currentHash+")").addClass("current");a.count=a.currentHash}else{a.find("."+a.options.pagerClass).children(":first-child").addClass("current");a.count=1}a.append('<ul class="'+
+        a.options.prevNextClass+'"><li><a href="#prev" class="prev">'+a.options.prevText+'</a></li><li><a href="#next" class="next">'+a.options.nextText+"</a></li>");a.find("."+a.options.pagerClass).find("a").bind("click",function(){a.pageClick(c(this))});a.find("."+a.options.prevNextClass).find("a").click(function(){a.prevNextClick(c(this).attr("class"));return false});c(document).bind("keyup",function(f){var e="";if(f.keyCode===37)e="prev";else if(f.keyCode===39)e="next";e!==""&&a.prevNextClick(e)})};a.init=      function(){a.options=c.extend(h,g);a.slides=a.find(a.options.slide);a.currentHash=window.location.hash.substr(1);a.currentHash?a.slides.filter(":not(:nth-child("+a.currentHash+"))").hide():a.slides.filter(":not(:first)").hide();a.addControls()};a.init()})}})(jQuery);
+    </script>
+    <script>
+        $(document).ready(function() {
+            concealTumblrPanel();
+            $('#slides').presentation({transition: 'show/hide'});
+        });
+        var concealTumblrPanel = function() {
+            $('iframe').remove();
+        };
+    </script>
+
+</head>
+<body>
+    
+    <h1><a href="/">Tumblr 101</a></h1>
+    
+
+          
+    <div class="post">
+        
+        
+            
+            <div id="slides">
+  
+  <div class="slide">
+    <div style="padding-top:24px; font-size:60px; color:#d3bfc9;">
+      The easiest way to blog.
+    </div>
+    <p><img src="images/www.passionworks.org__img__Tiles__images__passion-flower.jpg"/></p>
+</div>
+
+  <div class="slide">
+    <h3>Why Tumblr?</h3>
+    <ul>
+<li>Simple drop-dead publishing
+      </li>
+<li>Truly push button posting
+      </li>
+<li>Microblog v. link log v. full fledged blog
+      </li>
+<li>Possible Uses?
+      <ul>
+<li>Traditional blog
+        </li>
+<li>Photo blog / portfolio
+        </li>
+<li>Link collector
+        </li>
+<li>Research tool
+        </li>
+<li>Slideshows 
+      </li>
+</ul>
+</li>
+</ul>
+</div>
+
+  <div class="slide">
+    <h3>More Tumblr Goodness</h3>
+    <p>Brainless accommodation of a variety of different post types
+    </p>
+<ul>
+<li>text
+      </li>
+<li>photo
+      <ul>
+<li>Even mini-slideshows!
+        </li>
+<li>Multiple image sizes generated, with ability to link to original size
+      </li>
+</ul>
+</li>
+<li>link
+      </li>
+<li>quote
+      </li>
+<li>chat
+      </li>
+<li>audio (10MB limit), video (100MB limit)
+    </li>
+</ul>
+</div>
+
+  <div class="slide">
+    <h3>Yet even more Tumblr pluses</h3>
+    <ul>
+<li>Complete separation of programming code from presentation markup
+      </li>
+<li>Simple, yet powerful customization and templating
+    </li>
+</ul>
+</div>
+
+  <div class="slide">
+    <h3>What&#8217;s No So Great?</h3>
+    <ul>
+<li>No option to self-host on server or web host of your choosing
+      </li>
+<li>Subject to Tumblr ToS
+      </li>
+<li>You may be more comfortable and/or fluent with another (micro)?blogging platform
+    </li>
+</ul>
+</div>
+
+  <div class="slide">
+    <h3>Sign me up!</h3>
+    <p><strong>tumblr.com</strong>
+    </p>
+<p><img src="images/img.skitch.com__20101119-k1jj5dri1f8c5dw5qrrkijbkbi.medium.jpg"/></p>
+</div>
+
+  <div class="slide">
+    <h3>The Dashboard</h3>
+    <p><img src="images/img.skitch.com__20101120-r3i45hs3u5yrjqkc7wt6w1ca92.medium.jpg"/></p>
+</div>
+
+  <div class="slide">
+    <h3>The Bookmarklet</h3>
+    <p><img src="images/img.skitch.com__20101120-nndidp4x8ayeedsk4r7rgb7tag.medium.jpg"/></p>
+</div>
+
+  <div class="slide">
+    <h3>The (Rich)? Text Editor</h3>
+    <p><img src="images/img.skitch.com__20101120-ed8w5w41sxr15cspmxnb69u939.jpg"/></p>
+<p>Or, alternatively…
+    </p>
+<ul>
+<li>Markdown
+      </li>
+<li>HTML
+    </li>
+</ul>
+</div>
+
+  <div class="slide">
+    <h3>The Queue</h3>
+    <p><img src="images/img.skitch.com__20101120-p8xbtasyb1tp1kq9n3xrkayhfy.jpg"/></p>
+</div>
+
+  <div class="slide">
+    <h3>Customization and Themes</h3>
+    <ul>
+<li>Theming
+      <ul>
+<li>Free themes v. premium themes
+        </li>
+<li>Some themes have customizable elements, most commonly color, but other options to
+        </li>
+<li>Creating your own? No programming expertise required &#8212; all CSS, with simple template tags.
+      </li>
+</ul>
+</li>
+<li>Automatic favicon generation from uploaded profile image
+      </li>
+<li>RSS
+    </li>
+</ul>
+</div>
+
+  <div class="slide">
+    <h3>Static Pages?</h3>
+    <p><img src="images/img.skitch.com__20101120-x5w28tw79xd6xuwq5p9xp1w9c1.medium.jpg"/></p>
+</div>
+
+  <div class="slide">
+    <h3>The Community</h3>
+    <ul>
+<li>Following and followers
+      </li>
+<li>Likes, reblogs, replies
+      </li>
+<li>&#8220;Ask me anything&#8221; (&#8220;formspring&#8221; variant)
+      </li>
+<li><a href="http://www.tumblr.com/directory">Tumblr Directory</a></li>
+    </ul>
+</div>
+
+  <div class="slide">
+    <h3>Comments?</h3>
+    <ul>
+<li>Disqus
+        <blockquote><img src="images/img.skitch.com__20101120-c7qdd5s6a62drd7jefgg6ca9ue.medium.jpg"/></blockquote>
+      </li>
+    </ul>
+</div>
+
+  <div class="slide">
+    <h3>Other Goodies</h3>
+    <p><a href="http://tumblr.com/goodies">More stuff…</a></p>
+    <ul>
+<li>Can easily <a href="http://www.webmonkey.com/2010/02/get_started_with_tumblr/">setup custom domain use</a>:
+        <blockquote>
+          <p>The most obvious thing you might want to do customize is the URL. It’s nice of Tumblr to host for you, but if you have your own domain name already, why not use it?
+          </p>
+<p>The redirecting trick is pretty easy. Just head to your domain registrar’s control panel and follow the instructions to point the domain’s A-record (IP address) to 72.32.231.8.
+          </p>
+<p> Once that propagates (depending on your registrar, up to 72 hours) head back to the Tumblr dashboard and click click Customize. Under the URL settings, select “Use a custom domain name”, and enter your custom domain. Click “Save”, and your Tumblr page should now appear when you visit your own URL.
+        </p>
+</blockquote>
+      </li>
+      <li>Multiple Tumblrs on one account
+      </li>
+<li>Group blog capablity 
+      </li>
+<li>Backup your blog (Mac only)</li>
+      <li>Auto-share/publish to Facebook/Twitter</li>
+      <li>Post by email
+      </li>
+<li>Call in audio
+    </li>
+</ul>
+</div>
+
+  <div class="slide">
+    <h3>Advanced Tumblr</h3>
+    <ul>
+<li><a href="http://www.tumblr.com/docs/en/api">API</a></li>
+      <li><a href="http://www.tumblr.com/docs/en/apps">Third-Party Apps</a></li>
+    </ul>
+</div>
+
+  <div class="slide">
+    <h3>Questions?</h3>
+  </div>
+
+  <div class="slide">
+    <h3>Resources</h3>
+    <ul>
+<li><a href="http://www.tumblr.com/help">tumblr.com/help</a></li>
+      <li><a href="http://staff.tumblr.com">staff.tumblr.com</a></li>
+    </ul>
+</div>
+
+  <div class="slide">
+    <h3>Some other reading material</h3>
+    <ul>
+<li><a href="http://www.webmonkey.com/2010/02/get_started_with_tumblr/">Tumblr&#8217;s $25-plus million round</a></li>
+      <li><a href="http://www.avc.com/a_vc/2010/11/self-expression-matters.html">Self Expression Matters</a></li>
+      <li><a href="http://www.fastcompany.com/1697767/innovation-agents-marco-arment-founder-instapaper">Instapaper Founder Marco Arment&#8217;s Journey From Bagel Jockey to Publishing Pioneer</a></li>
+      <li><a href="http://notes.envato.com/news/buy-our-new-rockable-book-theme-tumblr-like-a-pro">Theme Tumblr Like a Pro</a></li>
+      <li><a href="http://blog.yottaa.com/2010/09/the-web-performance-impact-tumblr-leaves-competition-in-the-dust/">Tumblr Leaves Competition in the Dust</a></li>
+      <li><a href="http://www.webdesignerdepot.com/2010/09/in-depth-review-of-tumblrs-custom-theming-ability/">In-Depth Review of Tumblr&#8217;s Custom Theming Ability</a></li>
+      <li><a href="http://blogs.sitepoint.com/2010/08/24/tumblr-tools/">5 Tools for Doing More With Tumblr</a></li>
+      <li><a href="http://dealbook.nytimes.com/2010/08/02/meet-tumblr-facebook-and-twitters-new-rival/?src=twr">Meet Tumblr, Facebook and Twitter&#8217;s New Rival</a></li>
+      <li><a href="http://www.1stwebdesigner.com/tutorials/how-to-create-tumblr-theme/">How to Create a Tumblr Theme</a></li>
+      <li><a href="http://www.smashingmagazine.com/2010/07/22/a-complete-guide-to-tumblr/">A Complete Guide to Tumblr</a></li>
+      <li><a href="http://devsnippets.com/article/tumblr-ultimate-guide.html">Spicing Up Your Tumblr Experience</a></li>
+    </ul>
+</div>
+
+  <div class="slide">
+    <h3>Credits</h3>
+    <ul>
+<li><a href="http://twitter.com/naum">twitter.com/naum</a></li>
+      <li><a href="http://azspot.net">azspot.net</a></li>
+      <li><a href="http://azcode.tumblr.com">azcode.tumblr.com</a></li>
+      <li><a href="http://github.com/naum/Tumblr101">github.com/naum/Tumblr101</a></li>
+      <li>
+<a href="http://david.tumblr.com">David</a>, <a href="http://marco.org">Marco</a>, and the <a href="http://staff.tumblr.com">rest of the fine folks</a> <a href="https://twitter.com/#!/saved-search/%40tumblr&gt;@tumblr">@tumblr</a>
+</li>
+      <li><a href="http://github.com/davist11/jQuery-Presentation">github.com/davist11/jQuery-Presentation</a></li>
+      <li><a href="https://gist.github.com/526114">localiseImages.rb</a></li>
+    </ul>
+</div>
+
+</div>
+        
+
+        
+          
+        
+        
+        
+          
+        
+
+        
+        
+          
+        
+        
+        
+        
+    </div>
+    
+    
+    <!--  
+    <div class="nav"></div>
+        <p class="center"><span class="rss"><a href=http://bootup.tumblr.com/rss>rss</a></span></a><br><a href="/archive">archive</a><br>  
+    </div>
+    -->
+    
+<!-- BEGIN TUMBLR CODE --><iframe src="http://assets.tumblr.com/iframe.html?8&src=http%3A%2F%2Fbootup.tumblr.com%2F&amp;lang=en_US&amp;name=bootup&amp;brag=0" scrolling="no" width="324" height="25" frameborder="0" style="position:absolute; z-index:1337; top:0px; right:0px; border:0px; background-color:transparent; overflow:hidden;" id="tumblr_controls"></iframe><!--[if IE]><script type="text/javascript">document.getElementById('tumblr_controls').allowTransparency=true;</script><![endif]--><script type="text/javascript">_qoptions={qacct:"p-19UtqE8ngoZbM"};</script><script type="text/javascript" src="http://edge.quantserve.com/quant.js"></script><noscript><img src="images/pixel.quantserve.com__pixel__p-19UtqE8ngoZbM.gif" style="display:none; border-width:0px; height:1px; width:1px;" alt=""/></noscript><!-- END TUMBLR CODE --></body>
+</html>

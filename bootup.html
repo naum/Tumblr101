@@ -3,10 +3,11 @@
 <head>
     <!-- DEFAULT COLORS -->
     <meta name="color:Background" content="#ffffff" />
-    <meta name="color:Dim" content="#e5e5e5" />
-    <meta name="color:Headline" content="#555555" />
-    <meta name="color:Link" content="#0b559b" />
-    <meta name="color:Text" content="#333333" />
+    <meta name="color:Dim" content="#d3bfc9" />
+    <meta name="color:Headline" content="#3b001e" />
+    <meta name="color:Link" content="#4f0028" />
+    <meta name="color:Text" content="#14000a" />
+    <meta name="color:Hover" content="#3b001e" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>{Title}{block:SearchPage}, Search results for: {SearchQuery}{/block:SearchPage}{block:PostSummary}, {PostSummary}{/block:PostSummary}</title>
     {block:Description}<meta name="description" content="{MetaDescription}" />{/block:Description}
@@ -14,38 +15,46 @@
     <link rel="alternate" type="application/rss+xml" href="{RSS}" />
     <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.4/themes/cupertino/jquery-ui.css" type="text/css" /> 
     <style type="text/css"> 
+      
+        blockquote { font-size:14px; line-height:18px; }
+        blockquote p { margin:6px auto; }
+        blockquote p + p { margin-top:12px; }
     
         body, div, dl, h1, h2, h3, h4, h5, h6, p { margin:0; outline:0; padding:0; }
         
         body {
         	background-color: {color:Background};
         	color: {color:Text};
-        	font-size: 24pt;
+        	font-size: 24px;
         	font-family: Baskerville, "Goudy Old Style", "Palatino", "Book Antiqua", serif;
         	padding-right: 3%;
         	padding-left: 3%;
         	padding-top: 3%;
         }
  
-        code { font-size:18pt; white-space:pre-wrap; margin-top:-24pt; }
+        code { font-size:18px; white-space:pre-wrap; margin-top:-24px; }
  
         h1, h2, h3, h4, h5, h6 { 
             color: {color:Headline};
         }
  
         h1 {
-            font-size: 36pt;
-            margin-top: 10pt;
+            font-size: 48px;
+            margin-top: 0px;
+            margin-bottom: 0px;
+            padding-bottom: 0px;
+            padding-top: 0px;
         }
  
     
-        h3 { font-size:30pt; }
+        h3 { padding-top:0; font-size:36px; margin-top:0px; }
         
-        h4 { margin-top:12pt; margin-bottom:0; }
+        h4 { margin-top:12px; margin-bottom:12px; }
         
-        ol, ul { margin:12pt auto; }
+        ol, ul { margin:12px auto; }
         
-        p + p { margin-top:16pt; }
+        p { margin-top:12px; }
+        p + p { margin-top:24px; }
 
         table { border-collapse:collapse; margin:1em auto; }
         td, th { padding:0.3em 0.6em; }
@@ -62,7 +71,7 @@
         	text-decoration: none;
         }
 
-        a:hover { color:#0070a3; }
+        a:hover { background: {color:Dim}; color: {color:Hover}; }
  
         .quiet a {
         	color: {color:Dim};
@@ -72,18 +81,18 @@
             max-width: 100%;
         }
         
-        #slides { top: 20pt; }
-        .slide { padding: 20pt 0 40pt; }
+        #slides { top: 12px; padding-bottom:36; }
+        .slide { padding: 12px 0 24px; }
         .js .slide { position: absolute; }
-        .nav-pager, .nav-prev-next { font-size: 16pt; line-height: 16pt; list-style: none; margin: 0; overflow: hidden; position: fixed; z-index: 100; }
+        .nav-pager, .nav-prev-next { font-size: 18px; line-height: 24px; list-style: none; margin: 0; overflow: hidden; position: fixed; z-index: 100; }
         .nav-pager { bottom:0; left:0; }
         .nav-pager li, .nav-prev-next li { border: none; float: left; padding: 0; }
-        .nav-pager a, .nav-prev-next a { display: block; line-height: 16pt; }
-        .nav-pager li { margin-right: 6pt; }
-        .nav-pager a, .nav-prev-next a { background: {color:Link}; color: {color:Background}; padding: 10pt 5pt; text-decoration: none; }
+        .nav-pager a, .nav-prev-next a { display: block; line-height: 18px; }
+        .nav-pager li { margin-right: 6px; }
+        .nav-pager a, .nav-prev-next a { background: {color:Link}; color: {color:Background}; padding: 6px 6px; text-decoration: none; }
         .nav-pager .current a, .nav-prev-next a:hover { background: {color:Text}; color: {color:Background}; }
         .nav-prev-next { right: 3%; top: 0; }
-        .nav-prev-next li { margin-left: 6pt; }
+        .nav-prev-next li { margin-left: 6px; }
 
         {CustomCSS}
         
@@ -98,7 +107,7 @@
     <script>
         $(document).ready(function() {
             concealTumblrPanel();
-            $('#slides').presentation();
+            $('#slides').presentation({transition: 'show/hide'});
         });
         var concealTumblrPanel = function() {
             $('iframe').remove();
